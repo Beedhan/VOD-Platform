@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  /* padding: 50px 50px; */
+  height: 100vh;
+  align-items: center;
+}
+img {
+  width: 200px;
+}
+.left {
+  background-color: #607bda;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 50%;
+  /* padding-right: 20%; */
+}
+.left h1 {
+  color: white;
+  text-align: center;
+  font-size: 40px;
+  width: 350px;
+  margin-top: 50px;
+}
+.right {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 7% 0 2% 0;
+  align-items: center;
+
+  width: 50%;
+}
+.right form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  width: 55%;
+}
+.left div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+label {
+  align-self: flex-start;
+  font-size: 20px;
+  margin-top: 5px;
+}
+form .user {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0 0px 0;
+  border: 1px solid #000;
+  outline: none;
+  font-size: 20px;
+}
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.wrap label {
+  margin-left: 20px;
+}
+.user:focus {
+  outline: 1px solid #000;
+}
+.loginButton:hover {
+  background-color: #89a0f3;
+}
+.loginButton {
+  background-color: #607bda;
+  color: white;
+  border: none !important;
+  cursor: pointer;
+}
+input[type="checkbox"] {
+  width: 20px;
+  height: 25px;
+}
+

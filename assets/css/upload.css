@@ -1,0 +1,18 @@
+.uploadForm{
+   width: 70%; 
+   margin: auto;
+}
+.upload-label{
+    font-size: larger;
+    border: 2px black dashed;
+    color: black;
+    text-align: center;
+    padding: 40px 10px;
+    display: block;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+textarea{
+    resize: vertical;
+}
