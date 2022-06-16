@@ -34,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
         <div class="left">
             <div>
-                <img src="assets/copy.png" alt="" />
                 <h1>Learn anything </h1>
                 <h1>Anytime </h1>
             </div>
