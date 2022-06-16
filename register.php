@@ -1,6 +1,11 @@
 <?php
-include("config.php");
+session_start();
+if(isset($_SESSION['user'])){
+    header("Location:index.php");
+}
 include("functions.php");
+
+include("config.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $email = $_POST['email'];
@@ -9,9 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($username) || empty($email) || empty($password)) {
         echo "<script>alert('Field cannot be empty')</script>";
     }
-    $sql = "INSERT INTO users(username,email,password) VALUES('$username','$email','$password')";
     $error_user = checkUser($con, $username);
     $error_email = checkEmail($con, $email);
+    $hashedPwd = password_hash($password,PASSWORD_BCRYPT);
+    $sql = "INSERT INTO users(username,email,password) VALUES('$username','$email','$hashedPwd')";
     if (mysqli_query($con, $sql) && $error_user == null && $error_email == null) {
         $success_message = "Registration Successful";
     }
@@ -58,9 +64,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <a href="">Forgot Password</a>
                     </div>
                 </div>
-                <input type="submit" value="Login" class="user loginButton" />
+                <input type="submit" value="Register" class="user loginButton" />
             </form>
-            <a href="./login.php" style="color: #607bda">Register</a>
+            <a href="./login.php" style="color: #607bda">Login</a>
         </div>
     </div>
 </body>
