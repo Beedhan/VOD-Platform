@@ -35,7 +35,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="left">
             <div>
                 <h1>Learn anything </h1>
-                <h1>Anytime </h1>
             </div>
         </div>
         <div class="right">
