@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $success_message = "Registration Successful";
     }
 }
-?>i
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="left">
             <div>
                 <img src="assets/copy.png" alt="" />
-                <h1>Learn anything </h1>
+                <h1>Learn </h1>
                 <h1>Anytime </h1>
             </div>
         </div>
