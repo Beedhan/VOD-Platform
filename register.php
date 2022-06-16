@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $success_message = "Registration Successful";
     }
 }
-?>i
+?>
 <!DOCTYPE html>
 <html lang="en">
 
