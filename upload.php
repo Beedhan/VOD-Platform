@@ -5,12 +5,16 @@ include('config.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // print_r($_FILES);
-    $file_name = $_FILES['video']['name'];
-    $file_type = $_FILES['video']['type'];
-    $file_temp = $_FILES['video']['tmp_name'];
-    $file_destination = "upload/" . $file_name;
-    if (move_uploaded_file($file_temp, $file_destination)) {
-        $success = "Video uploaded successfully";
+    if (isset($_FILES)) {
+        $file_name = $_FILES['video']['name'];
+        $file_type = $_FILES['video']['type'];
+        $file_temp = $_FILES['video']['tmp_name'];
+        $file_destination = "upload/" . $file_name;
+        if (move_uploaded_file($file_temp, $file_destination)) {
+            $success = "Video uploaded successfully";
+        }else{
+            $error_msg = "Error uploading video <br> Eg:Max size exceeded";
+        }
     } else {
         $error_msg = "Please select a video to upload";
     }
