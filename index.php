@@ -1,5 +1,6 @@
 <?php
 include("session.php");
+include('config.php');
 $title = "Welcome to Student VOD";
 include('layouts/navbar.php');
 
@@ -11,30 +12,26 @@ include('layouts/navbar.php');
 </head>
 
 <body>
+
+<div class="video_container mx-5">
     <?php
-    include('config.php');
-    $sql = "SELECT * FROM video ORDER BY vid_id DESC ";
+    $sql = "SELECT * FROM video";
     $result = mysqli_query($con, $sql);
     if (mysqli_num_rows($result) > 0) {
         while ($video = mysqli_fetch_assoc($result)) {
-            print_r($video);
     ?>
-            <video src="uploads/<?= $video['name'] ?>"></video>
+    <a href="watch?video=<?= $video['name']?>">
+        <video src="<?= $video['video_location'] ?>"  ></video>
+        <div class="flex justify-between align-center px-2 pt-2">
+            <h1 class="font-medium"><?=$video['title']?></h1>
+            <p><?=$video['views']?> views</p>
+        </div>
+    </a>
     <?php
-
         }
-    } else {
-        echo "<h1?>Empty list </h1>";
     }
-
     ?>
-    <p>Home page</p>
-    <h2 class="title">Video Content</h2>
-    <video controls>
-        <source src="<?php echo '/upload' . $name ?>">
-
-    </video>
-
+</div>
 </body>
 
 </html>

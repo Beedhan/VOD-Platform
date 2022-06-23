@@ -1,0 +1,9 @@
+.video_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+border: 2px solid black;
+margin: 10px;
+border-radius: 10px;
+}

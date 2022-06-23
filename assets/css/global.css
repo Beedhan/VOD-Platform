@@ -33,20 +33,23 @@ a {
   text-decoration: none;
 }
 .textInput,button{
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  margin: 10px 0 0px 0;
-  border: 1px solid #000;
-  outline: none;
-  font-size: 20px;
+  width: 100% !important;
+  padding: 10px  !important;
+  border-radius: 5px !important;
+  margin: 10px 0 0px 0 !important;
+  border: 1px solid #000 !important;
+  outline: none !important;
+  font-size: 20px !important;
 }
 button{
-  color:white;
+  color:white !important;
   border: none !important;
-  cursor: pointer;
-background-color: #607bda;
+  cursor: pointer !important;
+background-color: #607bda !important;
 }
 .title{
   color: pink;
+}
+.flex{
+  display: flex;
 }

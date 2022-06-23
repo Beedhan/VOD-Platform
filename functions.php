@@ -18,3 +18,6 @@ function checkEmail($con, $email)
       return "There is already a user with this email address";
    }
 }
+function video_id(){
+   return substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'),1,8);
+}

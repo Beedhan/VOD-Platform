@@ -1,0 +1,12 @@
+.watch_container {
+  padding: 20px;
+}
+.watch_title {
+  margin-block-start: 0;
+  margin-block-end: 5px;
+}
+.views_time_container {
+  display: flex;
+  column-gap: 10px;
+  margin-top: 10px;
+}

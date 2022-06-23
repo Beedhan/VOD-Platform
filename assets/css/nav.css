@@ -4,9 +4,9 @@ nav{
     align-items: center;
 }
 nav h1{
-    font-size: 40px;
-    margin-block-start: 10px;
-    margin-block-end: 10px;
+    font-size: 30px;
+    margin-block-start: 5px;
+    margin-block-end: 5px;
 }
 ul{
     display: flex;

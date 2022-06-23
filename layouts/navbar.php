@@ -1,21 +1,22 @@
-<head>
-    <link rel="stylesheet" href="assets/css/nav.css">
-    <link rel="stylesheet" href="assets/css/global.css">
-    <?php if (isset($title)) {
-        echo "<title>$title  </title>";
-    } else {
-        echo "<title>Title  </title>";
-    } ?>
-
-</head>
+<?php
+include('head.php') 
+?>
 
 <body>
-    <nav>
-        <h1><a href="index.php">VOD</a></h1>
+    <nav class="px-5">
+        <h1><a href="/vod">VOD</a></h1>
         <ul>
             <li>
                 <a href="upload.php">Upload</a>
             </li>
+            <?php
+            if(isset($_SESSION['user'])){
+            ?>
+                <li>
+                    <a href="dashboard/videos.php">Dashboard</a>
+                </li>
+            
+           <?php }?>
             <li>
                 <a href="logout.php">Logout</a>
             </li>

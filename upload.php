@@ -3,44 +3,26 @@ include("session.php");
 include("functions.php");
 include('config.php');
 
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//     // print_r($_FILES);
-//     if (isset($_FILES)) {
-//         $file_name = $_FILES['video']['name'];
-//         $file_type = $_FILES['video']['type'];
-//         $file_temp = $_FILES['video']['tmp_name'];
-//         $file_destination = "upload/" . $file_name;
-//         if (move_uploaded_file($file_temp, $file_destination)) {
-//             $sql = "INSERT INTO video(title) VALUES('$file_name)";
-//             if (mysqli_query($con, $sql)) {
-//                 $success = "Video uploaded successfully";
-//             }
-//         } else {
-//             $error_msg = "Error uploading video <br> Eg:Max size exceeded";
-//         }
-//     } else {
-//         $error_msg = "Please select a video to upload";
-//     }
-// }
-
 if (isset($_POST['submit'])) {
-
-    $video_title = $_POST['title'];
-    $video_description = $_POST['desc'];
-    $video_category = $_POST['category'];
-    $video_name = $_FILES['video']['name'];
-    $video_type = $_FILES['video']['type'];
-    $video_temp = $_FILES['video']['tmp_name'];
-    $video_destination = "upload/ " . $video_name;
-
-    move_uploaded_file($video_temp, $video_destination);
-    $sql = "INSERT INTO video( name,title, description,category, video_location) VALUES('$video_name', '$video_title','$video_description','$video_category', '$video_destination')";
-
-    if (mysqli_query($con, $sql)) {
-        $success = "Video uploaded successfully";
+    if(isset($_POST['title']) && isset($_POST['desc'])&&isset($_POST['category'])&&isset($_FILES['video'])){
+        $video_title = $_POST['title'];
+        $video_description = $_POST['desc'];
+        $video_category = $_POST['category'];
+        $video_name = video_id();
+        $video_format = explode('.',$_FILES['video']['name']);
+        $video_type = $_FILES['video']['type'];
+        $video_temp = $_FILES['video']['tmp_name'];
+        $video_destination = "upload/ " . $video_name.".".$video_format[count($video_format)-1];
+        $session_user = $_SESSION['user'];
+        move_uploaded_file($video_temp, $video_destination);
+        $sql = "INSERT INTO video( name,title, description,category, video_location,owner_id) VALUES('$video_name', '$video_title','$video_description','$video_category', '$video_destination','$session_user')";
+    
+        if (mysqli_query($con, $sql)) {
+            $success = "Video uploaded successfully";
+        }
+    }else{
+        $error_msg = "Please fill up form completely";
     }
-} else {
-    $error_msg = "Please select the video to upload";
 }
 
 ?>
@@ -55,15 +37,13 @@ include('layouts/navbar.php');
 </head>
 
 <body>
-
-
     <form method="POST" enctype="multipart/form-data" class="uploadForm" id="uploadForm">
-        <input type="text" name="title" id="" placeholder="Title" class="textInput">
-        <textarea class="textInput" placeholder="Description" name="desc"></textarea>
+        <input type="text" name="title" id="" placeholder="Title" class="textInput" required>
+        <textarea class="textInput" placeholder="Description" name="desc" required></textarea>
         <label for="lang" class="catTitle">Category :</label>
 
-        <select name="category" id="category">
-            <option value="">--Choose Cattegory--</option>
+        <select name="category" id="category" required>
+            <option value="">--Choose Category--</option>
             <option value="Educational">Educational</option>
             <option value="Entertainment">Entertainment</option>
             <option value="Cooking">Cooking</option>
@@ -73,7 +53,7 @@ include('layouts/navbar.php');
 
         </select>
         <label for="video-upload" class="upload-label" id="upload-label">Select video</label>
-        <input id="video-upload" type="file" name="video" accept="video/mp4,video/*" style="visibility: hidden;" />
+        <input id="video-upload" type="file" name="video" accept="video/mp4,video/*" style="visibility: hidden;" required/>
         <button type="submit" id="submit" name="submit">Upload</button>
         <?php
         if (isset($error_msg)) {
