@@ -1,13 +1,14 @@
 <?php
 define('CSS_PATH', 'assets/css/'); //define CSS path
-echo realpath(__DIR__.'/assets/css/nav.css');
 ?>
 <head>
     <link rel="stylesheet" href="/vod/assets/css/nav.css">
-    <link rel="stylesheet" href="/vod/assets/css/global.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <?php
+    echo "<script src='https://cdn.tailwindcss.com'></script>";
     if(!isset($_GET['video'])){
-        echo "<script src='https://cdn.tailwindcss.com'></script>";
+        echo "<link rel='stylesheet' href='/vod/assets/css/global.css'>";
     }
     ?>
     <?php if (isset($title)) {

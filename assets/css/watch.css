@@ -1,5 +1,6 @@
 .watch_container {
   padding: 20px;
+  width: 70%;
 }
 .watch_title {
   margin-block-start: 0;
@@ -9,4 +10,7 @@
   display: flex;
   column-gap: 10px;
   margin-top: 10px;
+}
+.vjs-marker:hover {
+  background-color: white !important;
 }

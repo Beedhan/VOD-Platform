@@ -12,7 +12,6 @@ include('../layouts/navbar.php');
 ?>
 
 <body>
-    <h1>Your videos</h1>
     <?php
     if (mysqli_num_rows($result) > 0) {
         while ($video = mysqli_fetch_assoc($result)) {
