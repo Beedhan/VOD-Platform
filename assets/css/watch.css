@@ -1,6 +1,7 @@
 .watch_container {
   padding: 20px;
   width: 70%;
+  margin-bottom: 40px;
 }
 .watch_title {
   margin-block-start: 0;
@@ -13,4 +14,10 @@
 }
 .vjs-marker:hover {
   background-color: white !important;
+}
+.question {
+  background-color: rgb(67, 115, 234);
+  color: white;
+  margin-bottom: 10px;
+  border-radius: 10px;
 }
