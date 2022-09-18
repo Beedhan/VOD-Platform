@@ -1,5 +1,5 @@
 <?php
-include('head.php') 
+include('head.php');
 ?>
 
 <body>
@@ -7,18 +7,21 @@ include('head.php')
         <h1><a class="font-semibold" href="/vod">OnlyStudy</a></h1>
         <ul>
             <li>
-                <a href="upload.php">Upload</a>
+                <a href="<?= '/vod/events'; ?>">Events</a>
+            </li>
+            <li>
+                <a href="<?= "/vod/upload.php"; ?>">Upload</a>
             </li>
             <?php
-            if(isset($_SESSION['user'])){
+            if (isset($_SESSION['user'])) {
             ?>
                 <li>
-                    <a href="dashboard/videos.php">Dashboard</a>
+                    <a href="<?= "/vod/dashboard/videos.php" ?>">Dashboard</a>
                 </li>
-            
-           <?php }?>
+
+            <?php } ?>
             <li>
-                <a href="logout.php">Logout</a>
+                <a href="<?= "/vod/logout.php" ?>">Logout</a>
             </li>
         </ul>
     </nav>

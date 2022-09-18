@@ -4,7 +4,7 @@ include($_SERVER['DOCUMENT_ROOT'] . "/vod/config.php");
 
 $session_user = $_SESSION['user'];
 $video_id = $_GET['video_id'];
-$fetch_times = "SELECT * FROM questions where user_id='$session_user' AND video_id='$video_id'";
+$fetch_times = "SELECT questions.*,answers.answer FROM questions LEFT JOIN answers ON (questions.answer_id<=>answers.id) where questions.user_id='$session_user' AND questions.video_id='$video_id'";
 $result = mysqli_query($con, $fetch_times);
 
 $data = array();

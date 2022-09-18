@@ -18,6 +18,21 @@ function checkEmail($con, $email)
       return "There is already a user with this email address";
    }
 }
-function video_id(){
-   return substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'),1,8);
+function video_id()
+{
+   return substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'), 1, 8);
+}
+function user_token()
+{
+   return substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'), 1, 5);
+}
+function checkadmin($con, $userId)
+{
+   $adminCheck = "SELECT * from users WHERE id='$userId' AND role='admin' limit 1";
+   $userResult = mysqli_query($con, $adminCheck);
+   if ($userResult->num_rows > 0) {
+      return true;
+   } else {
+      return false;
+   }
 }

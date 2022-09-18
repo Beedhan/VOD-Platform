@@ -11,20 +11,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($email) || empty($password)) {
         echo "<script>alert('Field cannot be empty')</script>";
     }
-    $sql = "Select * from users WHERE email='$email'";
+    $sql = "Select * from users WHERE email='$email' AND status=1";
     $data = mysqli_query($con, $sql);
     $results = mysqli_fetch_assoc($data);
     if (!$results) {
         $error_user = "No user with associated email found";
-    }
-    $pwdVerified = password_verify($password, $results['password']);
-    // print_r($pwdVerified);
-    if ($pwdVerified == false) {
-        $error_pwd = "Password is incorrect";
     } else {
-        $_SESSION['user'] = $results['id'];
-        $_SESSION['username'] = $results['username'];
-        header("Location:index.php");
+        $pwdVerified = password_verify($password, $results['password']);
+        if ($pwdVerified == false) {
+            $error_pwd = "Password is incorrect";
+        } else {
+            $_SESSION['user'] = $results['id'];
+            $_SESSION['username'] = $results['username'];
+            header("Location:index.php");
+        }
     }
 }
 ?>
@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <label for="">Remember me</label>
                     </div>
                     <div>
-                        <a href="">Forgot Password</a>
+                        <a href="forgot.php">Forgot Password</a>
                     </div>
                 </div>
                 <input type="submit" value="Login" class="user loginButton" />

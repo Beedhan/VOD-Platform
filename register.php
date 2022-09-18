@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['user'])){
+if (isset($_SESSION['user'])) {
     header("Location:index.php");
 }
 include("functions.php");
@@ -16,7 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $error_user = checkUser($con, $username);
     $error_email = checkEmail($con, $email);
-    $hashedPwd = password_hash($password,PASSWORD_BCRYPT);
+    $hashedPwd = password_hash($password, PASSWORD_BCRYPT);
+
     $sql = "INSERT INTO users(username,email,password) VALUES('$username','$email','$hashedPwd')";
     if (mysqli_query($con, $sql) && $error_user == null && $error_email == null) {
         $success_message = "Registration Successful";
@@ -33,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Register</title>
     <link rel="stylesheet" href="./assets/css/styleLogin.css" />
     <link rel="stylesheet" href="./assets/css/global.css" />
-    
+
 </head>
 
 <body>
@@ -49,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <?php if (isset($success_message)) echo "<p class='success_msg'><img src='./assets/animations/tick.svg' class='anim_icon'/> $success_message</p> " ?>
                 <label for="">Username</label>
                 <input type="text" label="Username" placeholder="Username" class="user" required name="username" />
-            <?php if (isset($error_user)) echo "<span class='error_msg'><img src='./assets/animations/error.svg' class='anim_icon'/> $error_user</span> " ?>
+                <?php if (isset($error_user)) echo "<span class='error_msg'><img src='./assets/animations/error.svg' class='anim_icon'/> $error_user</span> " ?>
                 <label for="">Email</label>
                 <input type="email" label="Email" placeholder="Email address" class="user" required name="email" />
                 <?php if (isset($error_email)) echo "<p class='error_msg'><img src='./assets/animations/error.svg' class='anim_icon'/>$error_email</p> " ?>
@@ -70,4 +71,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 </body>
+
 </html>

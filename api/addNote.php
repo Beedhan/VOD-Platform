@@ -3,9 +3,9 @@ include($_SERVER['DOCUMENT_ROOT'] . "/vod/session.php");
 include($_SERVER['DOCUMENT_ROOT'] . "/vod/config.php");
 
 $session_user = $_SESSION['user'];
-$content = $_POST['content'];
-$time = $_POST['time'];
-$video_id = $_POST['video_id'];
+$content = mysqli_real_escape_string($con, $_POST['content']);
+$time = mysqli_real_escape_string($con, $_POST['time']);
+$video_id = mysqli_real_escape_string($con, $_POST['video_id']);
 $sql = "INSERT INTO notes( timestamp,note,owner_id,video_id) VALUES('$time', '$content','$session_user','$video_id')";
 $fetch_times = "SELECT * FROM notes where owner_id='$session_user' AND video_id='$video_id'";
 

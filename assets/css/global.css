@@ -31,24 +31,25 @@ body {
 a {
   text-decoration: none;
 }
-.textInput,button{
+.textInput,
+button {
   width: 100% !important;
-  padding: 10px  !important;
+  padding: 10px !important;
   border-radius: 5px !important;
   margin: 10px 0 0px 0 !important;
   border: 1px solid #000 !important;
   outline: none !important;
   font-size: 20px !important;
 }
-button{
-  color:white !important;
+button {
+  color: white !important;
   border: none !important;
   cursor: pointer !important;
-background-color: #607bda !important;
+  background-color: #607bda !important;
 }
-.title{
+.title {
   color: pink;
 }
-.flex{
+.flex {
   display: flex;
 }

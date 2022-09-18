@@ -1,0 +1,36 @@
+.video_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 2px solid black;
+  margin: 10px auto;
+  border-radius: 10px;
+  width: 100%;
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  width: 15%;
+}
+.sidebar li {
+  border-bottom: 1px solid black;
+}
+.videos {
+  width: 80%;
+}
+.main {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+}
+.deleteBtn {
+  color: white !important;
+  border: none !important;
+  cursor: pointer !important;
+  background-color: red !important;
+  padding: 10px;
+  border-radius: 5px;
+}
